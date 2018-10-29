@@ -239,7 +239,7 @@ func (ss *SqlStore) buildConnectionString() (string, error) {
 			ss.dbCfg.Path = filepath.Join(ss.Cfg.DataPath, ss.dbCfg.Path)
 		}
 		os.MkdirAll(path.Dir(ss.dbCfg.Path), os.ModePerm)
-		cnnstr = "file:" + ss.dbCfg.Path + "?cache=shared&mode=rwc"
+		cnnstr = "file:" + ss.dbCfg.Path
 	default:
 		return "", fmt.Errorf("Unknown database type: %s", ss.dbCfg.Type)
 	}
